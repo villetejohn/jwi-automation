@@ -1,0 +1,2 @@
+Place custom SVG icons here. Import and use in components as needed.
+The site uses lucide-react for standard icons — only add files here for custom/brand-specific icons.

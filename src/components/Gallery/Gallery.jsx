@@ -47,12 +47,16 @@ function GalleryCard({ item, visible, index }) {
   return (
     <div
       className={`gallery-card fade-up ${visible ? "is-visible" : ""}`}
-      style={{ "--delay": `${index * 55}ms`, background: item.color }}
+      style={{ "--delay": `${index * 55}ms` }}
     >
-      <div className="gallery-card__placeholder">
-        <Image size={36} className="gallery-card__placeholder-icon" />
-        <span className="gallery-card__placeholder-text">Photo Coming Soon</span>
-      </div>
+      {item.image ? (
+        <img src={item.image} alt={item.label} className="gallery-card__img" />
+      ) : (
+        <div className="gallery-card__placeholder">
+          <Image size={36} className="gallery-card__placeholder-icon" />
+          <span className="gallery-card__placeholder-text">Photo Coming Soon</span>
+        </div>
+      )}
       <div className="gallery-card__badge">{item.category}</div>
       <div className="gallery-card__overlay">
         <span className="gallery-card__overlay-label">{item.label}</span>

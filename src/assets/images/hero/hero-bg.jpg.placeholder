@@ -1,0 +1,3 @@
+Replace this file with hero-bg.jpg (1920x1080px minimum)
+Optional: Used as a background image behind the hero section overlay.
+If provided, import in Hero.jsx and apply as a background-image or <img>.

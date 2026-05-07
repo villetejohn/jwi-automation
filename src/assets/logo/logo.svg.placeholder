@@ -1,0 +1,3 @@
+Replace this file with logo.svg — dark version for white/light backgrounds.
+Format: SVG, ideally vector-based. Used in Navbar (scrolled state) and Footer.
+To use: import logo from "../../assets/logo/logo.svg" and render as <img src={logo} />.

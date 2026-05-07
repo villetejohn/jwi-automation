@@ -56,10 +56,14 @@ function AboutCopy({ visible }) {
 function AboutMedia({ visible }) {
   return (
     <div className={`about__media fade-up ${visible ? "is-visible" : ""}`} style={{ "--delay": "200ms" }}>
-      <div className="about__photo-placeholder">
-        <Building2 size={52} className="about__photo-icon" />
-        <div className="about__photo-label">Company Photo</div>
-      </div>
+      {ABOUT.companyPhoto ? (
+        <img src={ABOUT.companyPhoto} alt="JWI Automation team" className="about__photo" />
+      ) : (
+        <div className="about__photo-placeholder">
+          <Building2 size={52} className="about__photo-icon" />
+          <div className="about__photo-label">Company Photo</div>
+        </div>
+      )}
 
       <div className="about__certs">
         <div className="about__certs-label">Certifications & Accreditations</div>

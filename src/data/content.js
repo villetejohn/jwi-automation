@@ -3,7 +3,34 @@ import {
   Award, Briefcase, Users, Cpu, Home, Lock,
 } from "lucide-react";
 
-/* ── Replace placeholder values before launch ── */
+/* ═══════════════════════════════════════════════════════════════
+   IMAGE IMPORTS
+   When you have real photos, uncomment and update the imports
+   below, then set the corresponding `image:` field to the import.
+   See src/assets/ASSETS.md for file locations and naming.
+   ═══════════════════════════════════════════════════════════════
+
+// ── Gallery — Residential ──
+// import gateSubdivision from "../assets/images/gallery/residential/gate-subdivision.jpg";
+// import gateCondo       from "../assets/images/gallery/residential/gate-condo.jpg";
+// import gateVillage     from "../assets/images/gallery/residential/gate-village.jpg";
+
+// ── Gallery — Commercial ──
+// import barrierBuilding from "../assets/images/gallery/commercial/barrier-building.jpg";
+// import hvacBms         from "../assets/images/gallery/commercial/hvac-bms.jpg";
+// import campusSecurity  from "../assets/images/gallery/commercial/campus-security.jpg";
+
+// ── Gallery — Industrial ──
+// import plantAutomation  from "../assets/images/gallery/industrial/plant-automation.jpg";
+// import panelFabrication from "../assets/images/gallery/industrial/panel-fabrication.jpg";
+// import plcRetrofit      from "../assets/images/gallery/industrial/plc-retrofit.jpg";
+
+// ── About ──
+// import companyPhoto from "../assets/images/about/company-photo.jpg";
+
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Replace placeholder text values before launch ── */
 
 export const COMPANY = {
   name: "JWI Automation",
@@ -105,15 +132,16 @@ export const SERVICES = [
 ];
 
 export const GALLERY = [
-  { label: "Residential Subdivision Gate", category: "Residential", color: "#f5f0eb" },
-  { label: "Commercial Building Barrier System", category: "Commercial", color: "#ede8e0" },
-  { label: "Industrial Plant Automation", category: "Industrial", color: "#e8ede8" },
-  { label: "MCC Panel Fabrication", category: "Industrial", color: "#e0e8ed" },
-  { label: "Condominium Access Control", category: "Residential", color: "#f0ebe0" },
-  { label: "HVAC BMS Integration", category: "Commercial", color: "#ede8f0" },
-  { label: "PLC Retrofit & Upgrade", category: "Industrial", color: "#e8f0e0" },
-  { label: "Village Gate Automation", category: "Residential", color: "#f0e8e0" },
-  { label: "Campus Security Network", category: "Commercial", color: "#e0ede8" },
+  // image: null → shows placeholder. Replace null with the import variable when you have the photo.
+  { label: "Residential Subdivision Gate",    category: "Residential", image: null /* gateSubdivision */ },
+  { label: "Commercial Building Barrier",      category: "Commercial",  image: null /* barrierBuilding */ },
+  { label: "Industrial Plant Automation",      category: "Industrial",  image: null /* plantAutomation */ },
+  { label: "MCC Panel Fabrication",            category: "Industrial",  image: null /* panelFabrication */ },
+  { label: "Condominium Access Control",       category: "Residential", image: null /* gateCondo */ },
+  { label: "HVAC BMS Integration",             category: "Commercial",  image: null /* hvacBms */ },
+  { label: "PLC Retrofit & Upgrade",           category: "Industrial",  image: null /* plcRetrofit */ },
+  { label: "Village Gate Automation",          category: "Residential", image: null /* gateVillage */ },
+  { label: "Campus Security Network",          category: "Commercial",  image: null /* campusSecurity */ },
 ];
 
 export const GALLERY_FILTERS = ["All", "Residential", "Commercial", "Industrial"];
@@ -157,6 +185,8 @@ export const INDUSTRIES = [
 ];
 
 export const ABOUT = {
+  // companyPhoto: null → shows placeholder box. Replace null with the import variable when ready.
+  companyPhoto: null, /* companyPhoto */
   heading: "Built for Philippine Homes & Industry",
   body: [
     "JWI Automation is a full-service automation company serving residential, commercial, and industrial clients across the Philippines. We are best known for residential gate and barrier automation — helping subdivisions, villages, and private properties secure and automate their entry systems.",

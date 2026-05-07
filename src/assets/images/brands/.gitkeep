@@ -1,0 +1,2 @@
+Place partner brand logo SVGs here (e.g. faac.svg, siemens.svg).
+Update WhyUs.jsx BrandsBar component to use <img> tags instead of text.
