@@ -1,0 +1,108 @@
+/* ── Services ────────────────────────────────── */
+
+.services {
+  background: var(--color-bg-alt);
+  padding: var(--section-padding);
+  font-family: var(--font-body);
+}
+
+.services__header { margin-bottom: 72px; }
+
+.services__list { display: flex; flex-direction: column; }
+
+/* ── Service row ── */
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--color-border);
+}
+
+.service-row:last-child { border-bottom: 1px solid var(--color-border); }
+
+.service-row__main {
+  padding: 52px 48px 52px 0;
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.service-row__number {
+  font-family: var(--font-heading);
+  font-size: 80px;
+  color: var(--color-border);
+  line-height: 1;
+  min-width: 64px;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.service-row__content {}
+
+.service-row__title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.service-row__icon {
+  width: 36px;
+  height: 36px;
+  background: var(--color-orange-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-orange);
+}
+
+.service-row__title {
+  color: var(--color-text-primary);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.service-row__desc {
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.service-row__features {
+  padding: 52px 0 52px 48px;
+  display: flex;
+  align-items: center;
+}
+
+.service-row__feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.service-row__feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+}
+
+.service-row__feature-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-orange);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .service-row               { grid-template-columns: 1fr; }
+  .service-row__main         { padding: 36px 0 0; border-right: none; }
+  .service-row__features     { padding: 24px 0 36px; }
+}

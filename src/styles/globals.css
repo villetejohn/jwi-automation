@@ -1,0 +1,85 @@
+/* ═══════════════════════════════════════════════
+   GLOBAL RESET & BASE STYLES
+   ═══════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--color-bg-alt); }
+::-webkit-scrollbar-thumb  { background: var(--color-orange); border-radius: 3px; }
+
+/* ── Inputs ── */
+input::placeholder,
+textarea::placeholder { color: #C0BAB4; }
+
+select option {
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+}
+
+/* ── Links ── */
+a { text-decoration: none; }
+
+/* ── Images ── */
+img { display: block; max-width: 100%; }
+
+/* ── Section layout helper ── */
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ── Section header ── */
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.section-eyebrow__line {
+  width: 32px;
+  height: 3px;
+  background: var(--color-orange);
+  flex-shrink: 0;
+}
+
+.section-eyebrow__label {
+  color: var(--color-orange);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 5vw, 64px);
+  color: var(--color-text-primary);
+  line-height: 1;
+  margin: 0 0 16px;
+}
+
+.section-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 540px;
+}

@@ -1,0 +1,139 @@
+/* ── Why Us ──────────────────────────────────── */
+
+/* ── Stats row (orange bg) ── */
+.whyus-stats {
+  background: var(--color-bg-orange);
+}
+
+.whyus-stats__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.whyus-stat {
+  text-align: center;
+  padding: 52px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.whyus-stat:last-child { border-right: none; }
+
+.whyus-stat__value {
+  font-family: var(--font-heading);
+  font-size: 76px;
+  color: #fff;
+  line-height: 1;
+}
+
+.whyus-stat__label {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  margin-top: 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── Value props ── */
+.whyus-values {
+  background: var(--color-bg-alt);
+  padding: var(--section-padding);
+}
+
+.whyus-values__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.whyus-values__header { margin-bottom: 64px; }
+
+.whyus-values__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* ── Value card ── */
+.value-card {
+  background: var(--color-bg);
+  padding: 48px 36px;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-orange);
+}
+
+.value-card__icon {
+  width: 56px;
+  height: 56px;
+  background: var(--color-orange-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  color: var(--color-orange);
+}
+
+.value-card__title {
+  color: var(--color-text-primary);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.value-card__desc {
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── Partner brands bar ── */
+.brands-bar {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  padding: 40px 32px;
+}
+
+.brands-bar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.brands-bar__label {
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.brands-bar__divider {
+  width: 1px;
+  height: 20px;
+  background: var(--color-border);
+}
+
+.brands-bar__brand {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+.brands-bar__brand:hover { opacity: 1; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .whyus-stats__inner     { grid-template-columns: repeat(2, 1fr); }
+  .whyus-stat             { padding: 36px 16px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+  .whyus-values__grid     { grid-template-columns: 1fr; }
+}

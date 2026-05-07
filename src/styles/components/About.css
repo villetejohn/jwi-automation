@@ -1,0 +1,161 @@
+/* ── About ───────────────────────────────────── */
+
+.about {
+  background: var(--color-bg);
+  padding: var(--section-padding);
+  font-family: var(--font-body);
+}
+
+.about__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ── Left column ── */
+.about__copy {}
+
+.about__header { margin-bottom: 28px; }
+
+.about__body-text {
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+
+.about__body-text:last-of-type { margin-bottom: 40px; }
+
+/* ── Industries ── */
+.about__industries { margin-bottom: 40px; }
+
+.about__industries-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+
+.about__industry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.about__industry-tag {
+  background: var(--color-orange-light);
+  color: var(--color-orange);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(232, 82, 10, 0.2);
+}
+
+/* ── Mission / Vision ── */
+.about__mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.about__mv-card {
+  padding: 28px 24px;
+}
+
+.about__mv-card--mission {
+  background: var(--color-bg-orange);
+}
+
+.about__mv-card--vision {
+  background: var(--color-bg-alt);
+}
+
+.about__mv-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.about__mv-card--mission .about__mv-label { color: rgba(255, 255, 255, 0.72); }
+.about__mv-card--vision  .about__mv-label { color: var(--color-orange); }
+
+.about__mv-text {
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.about__mv-card--mission .about__mv-text { color: rgba(255, 255, 255, 0.9); }
+.about__mv-card--vision  .about__mv-text { color: var(--color-text-secondary); }
+
+/* ── Right column (media) ── */
+.about__media {}
+
+.about__photo-placeholder {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.about__photo-icon { color: var(--color-border); }
+
+.about__photo-label {
+  color: var(--color-border);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.about__certs {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  padding: 28px 24px;
+}
+
+.about__certs-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+}
+
+.about__cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about__cert-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-orange);
+}
+
+.about__cert-name {
+  color: var(--color-text-primary);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .about__inner    { grid-template-columns: 1fr; gap: 48px; }
+  .about__mv-grid  { grid-template-columns: 1fr; }
+}

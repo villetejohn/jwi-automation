@@ -1,0 +1,45 @@
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS — edit here to change the theme
+   ═══════════════════════════════════════════════ */
+
+:root {
+  /* ── Brand Colors ── */
+  --color-orange:        #E8520A;
+  --color-orange-hover:  #D44A08;
+  --color-orange-light:  #FFF0EB;
+
+  /* ── Backgrounds ── */
+  --color-bg:            #FFFFFF;
+  --color-bg-alt:        #F8F7F4;
+  --color-bg-orange:     #E8520A;
+  --color-bg-dark:       #111111;
+
+  /* ── Text ── */
+  --color-text-primary:   #111111;
+  --color-text-secondary: #6B6460;
+  --color-text-on-orange: #FFFFFF;
+  --color-text-muted:     #9A9590;
+
+  /* ── Borders ── */
+  --color-border:        #E8E5E0;
+  --color-border-dark:   #2A2A2A;
+
+  /* ── Shadows ── */
+  --shadow-sm:  0 2px 20px rgba(0, 0, 0, 0.07);
+  --shadow-md:  0 4px 32px rgba(0, 0, 0, 0.10);
+  --shadow-lg:  0 8px 48px rgba(0, 0, 0, 0.13);
+
+  /* ── Typography ── */
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* ── Layout ── */
+  --max-width:       1280px;
+  --section-padding: 104px 32px;
+  --nav-height:      72px;
+
+  /* ── Transitions ── */
+  --transition-fast:   0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow:   0.6s ease;
+}

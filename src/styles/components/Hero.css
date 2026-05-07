@@ -1,0 +1,198 @@
+/* ── Hero ────────────────────────────────────── */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-orange);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-body);
+}
+
+.hero__body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 140px 32px 60px;
+  width: 100%;
+}
+
+/* ── Grid overlay ── */
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.hero__glow-top {
+  position: absolute;
+  top: -160px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero__glow-bottom {
+  position: absolute;
+  bottom: 40px; left: -80px;
+  width: 340px; height: 340px;
+  background: radial-gradient(circle, rgba(0,0,0,0.12) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── Badge ── */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  margin-bottom: 28px;
+}
+
+.hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.hero__badge-text {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* ── Headline ── */
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(60px, 9vw, 116px);
+  line-height: 0.92;
+  color: #fff;
+  letter-spacing: 0.015em;
+  margin: 0 0 28px;
+  max-width: 960px;
+}
+
+.hero__desc {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(16px, 2vw, 18px);
+  max-width: 560px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+
+/* ── CTA buttons ── */
+.hero__ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero__btn-primary {
+  background: #fff;
+  color: var(--color-orange);
+  padding: 15px 36px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background var(--transition-fast);
+}
+
+.hero__btn-primary:hover { background: var(--color-orange-light); }
+
+.hero__btn-secondary {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  padding: 15px 36px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.hero__btn-secondary:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Stat bar ── */
+.hero__stat-bar {
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  z-index: 2;
+}
+
+.hero__stat-bar-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.hero__stat {
+  padding: 26px 16px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero__stat:last-child { border-right: none; }
+
+.hero__stat-value {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  color: #fff;
+  line-height: 1;
+}
+
+.hero__stat-label {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  margin-top: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── Scroll indicator ── */
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: 96px;
+  right: 32px;
+  z-index: 2;
+  opacity: 0.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero__inner    { padding: 110px 24px 48px; }
+  .hero__btn-primary,
+  .hero__btn-secondary { padding: 13px 24px; width: 100%; justify-content: center; }
+}
