@@ -1,8 +1,10 @@
 import { ChevronRight } from "lucide-react";
-import { PRODUCTS } from "../../data/content";
+import { useSiteContent } from "../../context/SiteContentContext";
+import { ICON_MAP } from "../../data/iconMap";
 import { useFadeIn } from "../../hooks/useFadeIn";
 
 export default function Products() {
+  const { PRODUCTS } = useSiteContent();
   const [ref, visible] = useFadeIn();
 
   return (
@@ -30,7 +32,7 @@ export default function Products() {
 }
 
 function ProductCard({ product, visible, index }) {
-  const Icon = product.icon;
+  const Icon = ICON_MAP[product.icon] || ICON_MAP.Settings;
   return (
     <div
       className={`product-card ${product.featured ? "product-card--featured" : ""} fade-up ${visible ? "is-visible" : ""}`}

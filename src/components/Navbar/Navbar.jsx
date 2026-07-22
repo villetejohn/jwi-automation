@@ -3,6 +3,11 @@ import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = ["Home", "Products", "Services", "Gallery", "About", "Contact"];
 
+// Must match the max-width in Navbar.css's burger-menu media query — this
+// is the width the desktop link row reappears at, so the JS-driven mobile
+// dropdown state needs to reset in sync with it.
+const MOBILE_BREAKPOINT = 1080;
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -12,6 +17,22 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    // Resizing or rotating past the breakpoint while the dropdown is open
+    // (e.g. a tablet going portrait -> landscape) would otherwise leave it
+    // stuck open underneath the now-visible desktop nav.
+    const onResize = () => {
+      if (window.innerWidth > MOBILE_BREAKPOINT) setOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
     <nav className={`navbar ${scrolled ? "is-scrolled" : ""}`}>

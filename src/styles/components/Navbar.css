@@ -111,7 +111,11 @@
   border: none;
   color: #fff;
   cursor: pointer;
-  padding: 4px;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar.is-scrolled .navbar__burger { color: var(--color-text-primary); }
@@ -122,6 +126,8 @@
   border-top: 1px solid var(--color-border);
   padding: 16px 32px 28px;
   box-shadow: var(--shadow-md);
+  max-height: calc(100vh - var(--nav-height));
+  overflow-y: auto;
 }
 
 .navbar__mobile-link {
@@ -152,11 +158,35 @@
 .navbar__mobile-cta:hover { background: var(--color-orange-hover); }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+/* Tablets/iPad (both orientations) and phones get the burger menu — the
+   full desktop link row + CTA doesn't fit below 1080px even at the
+   compact sizing below. */
+@media (max-width: 1080px) {
   .navbar__links { display: none; }
-  .navbar__burger { display: block; }
+  .navbar__burger { display: flex; }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1081px) {
   .navbar__burger { display: none; }
+}
+
+/* Laptop/small-desktop widths (1081px-1690px): keep the horizontal nav
+   instead of collapsing to a hamburger, just tighten it to fit. */
+@media (min-width: 1081px) and (max-width: 1690px) {
+  .navbar__inner { padding: 0 20px; }
+  .navbar__links { gap: 22px; }
+  .navbar__link { font-size: 13px; }
+  .navbar__cta { padding: 9px 16px; font-size: 12px; }
+  .navbar__logo-name { font-size: 24px; }
+}
+
+@media (max-width: 768px) {
+  .navbar__inner { padding: 0 20px; }
+  .navbar__mobile { padding: 16px 20px 24px; }
+}
+
+@media (max-width: 480px) {
+  .navbar__logo-name { font-size: 24px; }
+  .navbar__inner { padding: 0 16px; }
+  .navbar__mobile { padding: 14px 16px 22px; }
 }

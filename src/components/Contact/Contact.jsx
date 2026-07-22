@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, CheckCircle, ArrowRight, Facebook, Linkedin, Youtube, Instagram } from "lucide-react";
-import { COMPANY, SERVICES } from "../../data/content";
+import { useSiteContent } from "../../context/SiteContentContext";
 import { useFadeIn } from "../../hooks/useFadeIn";
 
-const SOCIAL_LINKS = [
-  { Icon: Facebook, label: "Facebook", href: COMPANY.facebook },
-  { Icon: Linkedin, label: "LinkedIn", href: "#" },
-  { Icon: Instagram, label: "Instagram", href: "#" },
-  { Icon: Youtube, label: "YouTube", href: "#" },
+// Icon/label are static; href for Facebook depends on runtime-fetched
+// COMPANY data, so this is built inside ContactDetails() instead of here.
+const SOCIAL_LINK_DEFS = [
+  { Icon: Facebook, label: "Facebook", href: (c) => c.facebook },
+  { Icon: Linkedin, label: "LinkedIn", href: () => "#" },
+  { Icon: Instagram, label: "Instagram", href: () => "#" },
+  { Icon: Youtube, label: "YouTube", href: () => "#" },
 ];
 
 const CONTACT_DETAILS = [
@@ -44,6 +46,7 @@ export default function Contact() {
 }
 
 function ContactDetails({ visible }) {
+  const { COMPANY } = useSiteContent();
   return (
     <div className={`contact-details fade-up ${visible ? "is-visible" : ""}`} style={{ "--delay": "100ms" }}>
       <h3 className="contact-details__title">Contact Information</h3>
@@ -61,8 +64,8 @@ function ContactDetails({ visible }) {
       <div>
         <div className="contact-details__divider" />
         <div className="contact-details__socials">
-          {SOCIAL_LINKS.map(({ Icon, label, href }) => (
-            <a key={label} href={href} title={label} className="contact-details__social-btn">
+          {SOCIAL_LINK_DEFS.map(({ Icon, label, href }) => (
+            <a key={label} href={href(COMPANY)} title={label} className="contact-details__social-btn">
               <Icon size={16} />
             </a>
           ))}
@@ -73,11 +76,36 @@ function ContactDetails({ visible }) {
 }
 
 function InquiryForm({ visible }) {
+  const { SERVICES } = useSiteContent();
   const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", service: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   const update = (field) => (e) => setForm(prev => ({ ...prev, [field]: e.target.value }));
-  const handleSubmit = () => { if (form.name && form.email && form.message) setSent(true); };
+
+  const handleSubmit = () => {
+    if (!form.name || !form.email || !form.message) {
+      setError("Please fill in your name, email, and message.");
+      return;
+    }
+    setSending(true);
+    setError("");
+    // Same origin in production (jwi-combined mounts this site at "/" and
+    // the tracker at "/app") — no CORS needed. Creates a Requested site
+    // visit in the tracker; staff follow up from there.
+    fetch("/app/api/inquiries", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("request failed");
+        setSent(true);
+      })
+      .catch(() => setError("Couldn't send your inquiry — please try again or call us directly."))
+      .finally(() => setSending(false));
+  };
 
   if (sent) {
     return (
@@ -132,8 +160,10 @@ function InquiryForm({ visible }) {
         />
       </div>
 
-      <button className="contact-form__submit" onClick={handleSubmit}>
-        Send Inquiry <ArrowRight size={16} />
+      {error && <p style={{ color: "#c62828", marginBottom: "0.75rem" }}>{error}</p>}
+
+      <button className="contact-form__submit" onClick={handleSubmit} disabled={sending}>
+        {sending ? "Sending..." : "Send Inquiry"} <ArrowRight size={16} />
       </button>
     </div>
   );

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { ArrowUp, Phone, Mail } from "lucide-react";
-import { FOOTER_LINKS, COMPANY } from "../../data/content";
+import { useSiteContent } from "../../context/SiteContentContext";
 
 export default function Footer() {
+  const { FOOTER_LINKS, COMPANY } = useSiteContent();
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {

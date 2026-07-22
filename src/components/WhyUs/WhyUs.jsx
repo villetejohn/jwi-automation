@@ -1,4 +1,5 @@
-import { COMPANY, WHY_US, PARTNER_BRANDS } from "../../data/content";
+import { useSiteContent } from "../../context/SiteContentContext";
+import { ICON_MAP } from "../../data/iconMap";
 import { useFadeIn } from "../../hooks/useFadeIn";
 import { useCounter } from "../../hooks/useCounter";
 
@@ -15,6 +16,7 @@ export default function WhyUs() {
 }
 
 function StatsRow({ visible }) {
+  const { COMPANY } = useSiteContent();
   return (
     <div className="whyus-stats">
       <div className="whyus-stats__inner">
@@ -40,6 +42,7 @@ function StatBox({ value, suffix, label, active, delay }) {
 }
 
 function ValueProps({ visible }) {
+  const { WHY_US } = useSiteContent();
   return (
     <div className="whyus-values">
       <div className="whyus-values__inner">
@@ -65,7 +68,7 @@ function ValueProps({ visible }) {
 }
 
 function ValueCard({ item, visible, index }) {
-  const Icon = item.icon;
+  const Icon = ICON_MAP[item.icon] || ICON_MAP.Award;
   return (
     <div
       className={`value-card fade-up ${visible ? "is-visible" : ""}`}
@@ -79,6 +82,7 @@ function ValueCard({ item, visible, index }) {
 }
 
 function BrandsBar({ visible }) {
+  const { PARTNER_BRANDS } = useSiteContent();
   return (
     <div className="brands-bar">
       <div className={`brands-bar__inner fade-up ${visible ? "is-visible" : ""}`}>

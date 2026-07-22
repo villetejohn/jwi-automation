@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { COMPANY } from "../../data/content";
+import { useSiteContent } from "../../context/SiteContentContext";
 
 export default function Hero() {
+  const { COMPANY } = useSiteContent();
   const [loaded, setLoaded] = useState(false);
   useEffect(() => { setTimeout(() => setLoaded(true), 100); }, []);
 

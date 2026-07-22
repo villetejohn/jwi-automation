@@ -12,6 +12,7 @@ import "./styles/components/About.css";
 import "./styles/components/Contact.css";
 import "./styles/components/Footer.css";
 
+import { SiteContentProvider } from "./context/SiteContentContext";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Products from "./components/Products/Products";
@@ -24,7 +25,7 @@ import Footer from "./components/Footer/Footer";
 
 export default function App() {
   return (
-    <>
+    <SiteContentProvider>
       <Navbar />
       <main>
         <Hero />
@@ -36,6 +37,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </SiteContentProvider>
   );
 }

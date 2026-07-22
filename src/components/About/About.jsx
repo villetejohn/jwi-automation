@@ -1,5 +1,5 @@
 import { Building2, Award } from "lucide-react";
-import { ABOUT, CERTIFICATIONS, INDUSTRIES } from "../../data/content";
+import { useSiteContent } from "../../context/SiteContentContext";
 import { useFadeIn } from "../../hooks/useFadeIn";
 
 export default function About() {
@@ -16,6 +16,7 @@ export default function About() {
 }
 
 function AboutCopy({ visible }) {
+  const { ABOUT, INDUSTRIES } = useSiteContent();
   return (
     <div className={`about__copy fade-up ${visible ? "is-visible" : ""}`}>
       <div className="about__header">
@@ -54,6 +55,7 @@ function AboutCopy({ visible }) {
 }
 
 function AboutMedia({ visible }) {
+  const { ABOUT, CERTIFICATIONS } = useSiteContent();
   return (
     <div className={`about__media fade-up ${visible ? "is-visible" : ""}`} style={{ "--delay": "200ms" }}>
       {ABOUT.companyPhoto ? (

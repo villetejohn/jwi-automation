@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Image } from "lucide-react";
-import { GALLERY, GALLERY_FILTERS } from "../../data/content";
+import { useSiteContent } from "../../context/SiteContentContext";
 import { useFadeIn } from "../../hooks/useFadeIn";
 
 export default function Gallery() {
+  const { GALLERY, GALLERY_FILTERS } = useSiteContent();
   const [ref, visible] = useFadeIn();
   const [activeFilter, setActiveFilter] = useState("All");
 

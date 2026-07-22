@@ -1,10 +1,11 @@
 import { Home, Settings, Shield, Wrench, CheckCircle } from "lucide-react";
-import { SERVICES } from "../../data/content";
+import { useSiteContent } from "../../context/SiteContentContext";
 import { useFadeIn } from "../../hooks/useFadeIn";
 
 const SERVICE_ICONS = [Home, Settings, Wrench, Shield];
 
 export default function Services() {
+  const { SERVICES } = useSiteContent();
   const [ref, visible] = useFadeIn();
 
   return (
